@@ -1,0 +1,26 @@
+{
+  "name": "game-site-app",
+  "version": "1.0.0",
+  "description": "app idea: online chess app portal",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/austibb/game-site-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/austibb/game-site-app/issues"
+  },
+  "homepage": "https://github.com/austibb/game-site-app#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}

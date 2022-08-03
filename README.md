@@ -1,6 +1,7 @@
 # game-site-app
 
 code to run when starting:
+npm init -y
 npm i express
 npm i fs
 npm i path
