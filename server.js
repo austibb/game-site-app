@@ -10,10 +10,10 @@ const sequelize = require("./config/connection");
 // need to change file here
 const routes = require("./controllers/homepageController");
 // need to make this file too
-const helpers = require("./utils/helpers");
+// const helpers = require("./utils/helpers");
 
 const hbs = exphbs.create({
-	helpers,
+	// helpers,
 });
 
 // need to set session secret on .env
@@ -64,8 +64,6 @@ app.use(routes);
 // 	res.sendFile(path.join(__dirname, "./public/index.html"));
 // });
 
-
 sequelize.sync({ force: false }).then(() => {
 	app.listen(PORT, () => console.log("WE MADE IT!!! "));
 });
-
