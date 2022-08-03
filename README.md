@@ -14,6 +14,8 @@ npm i sequelize
 npm i fs
 npm i path
 
+
+
 app idea:
 online real-time rock paper scissors
 
@@ -25,6 +27,19 @@ users can see other user accounts and start/play games with them
 turn based only - current idea is chess
 
 live collaboration/interaction: socket.io
+
+WHEN I click login/enter
+THEN I am prompted to enter credentials or create a new account
+WHEN I enter the portal
+THEN I can see a list of other active users and a list of users I am playing a game with
+WHEN I click on a user's name
+THEN I am presented with the option to initiate a game with them or view score history
+WHEN I begin a game
+THEN I am taken to a screen to play a game of rock paper scissors
+WHEN I view score history
+THEN I can see the game history between myself and the user
+WHEN I click logout
+THEN I am returned to the home page
 
 Use Node.js and Express.js to create a RESTful API.
 
