@@ -15,6 +15,7 @@ npm init -y
 - npm i sequelize
 - npm i fs
 - npm i path
+- npm install socket.io
 ```
 
 app idea:
