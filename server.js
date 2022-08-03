@@ -49,6 +49,7 @@ app.use(routes);
 // });
 
 // serves home page
+
 // app.get("/home", (req, res) => {
 // 	res.sendFile(path.join(__dirname, "./public/home.html"));
 // });
@@ -58,11 +59,23 @@ app.use(routes);
 // 	res.sendFile(path.join(__dirname, "/db/db.json"));
 // });
 
+// app.get('/home', (req, res) => {
+//    res.sendFile(path.join(__dirname, './public/home.html'))
+});
+
+// creates the bridge to api and serves the db.json when api/notes is entered in url
+// app.get('/api/data', (req, res) => {
+//     res.sendFile(path.join(__dirname, "/db/db.json"));
+});
+
+
 // // Catches all to send to home page
 // app.get("*", (req, res) => {
 // 	res.sendFile(path.join(__dirname, "./public/index.html"));
 // });
 
+
 sequelize.sync({ force: false }).then(() => {
 	app.listen(PORT, () => console.log("WE MADE IT!!! "));
-});
+
+
