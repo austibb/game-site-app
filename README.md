@@ -2,16 +2,22 @@
 
 code to run when starting:
 npm init -y
+
+npm i brycptjs
+npm i connect-session-sequelize
+npm i dotenv
 npm i express
+npm i express-handlebars
+npm i express-session
+npm i mysql2
+npm i sequelize
 npm i fs
 npm i path
-npm i mysql2
-npm i dotenv
 
 
 
 app idea:
-online chess app portal
+online real-time rock paper scissors
 
 users will create an account and password to be able to use the app
 will use SQL to store user data and game data
@@ -34,8 +40,6 @@ WHEN I view score history
 THEN I can see the game history between myself and the user
 WHEN I click logout
 THEN I am returned to the home page
-
-
 
 Use Node.js and Express.js to create a RESTful API.
 
