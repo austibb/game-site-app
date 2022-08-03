@@ -1,5 +1,13 @@
 # game-site-app
 
+code to run when starting:
+npm i express
+npm i fs
+npm i path
+npm i mysql2
+
+
+
 app idea:
 online chess app portal
 
