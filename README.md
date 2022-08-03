@@ -1,18 +1,21 @@
 # game-site-app
 
 code to run when starting:
+
+```md
 npm init -y
 
-npm i brycptjs
-npm i connect-session-sequelize
-npm i dotenv
-npm i express
-npm i express-handlebars
-npm i express-session
-npm i mysql2
-npm i sequelize
-npm i fs
-npm i path
+- npm i brycptjs
+- npm i connect-session-sequelize
+- npm i dotenv
+- npm i express
+- npm i express-handlebars
+- npm i express-session
+- npm i mysql2
+- npm i sequelize
+- npm i fs
+- npm i path
+```
 
 
 
