@@ -2,10 +2,11 @@
 
 ## Table of Contents
 
-- [Starting](##Starting)
-- [Concept](##Concept)
-- [Scenario](##Scenario)
-- [Criteria](##Criteria)
+- [Starting](#Starting)
+- [Concept](#Concept)
+- [Scenario](#Scenario)
+- [Criteria](#Criteria)
+- [Stretch Goals](#Stretch-Goals)
 
 ## Starting
 
@@ -99,3 +100,7 @@ THEN I am returned to the home page
 - Be responsive.
 
 - Be interactive (in other words, accept and respond to user input).
+
+## Stretch Goals
+
+- Games played counter for each user in database

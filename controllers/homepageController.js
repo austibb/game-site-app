@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const apiController = require("./apiController");
+const { User } = require("./../models");
 // when models are created put them here
 // const { Todo, User } = require("./../models");
 

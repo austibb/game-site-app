@@ -16,11 +16,9 @@ const hbs = exphbs.create({
 	// helpers,
 });
 
-// need to set session secret on .env
 const sessionSettings = {
 	secret: process.env.SESSION_SECRET,
 	resave: false,
-	// maxAge: ,
 	saveUninitialized: false,
 	store: new SequelizeStore({
 		db: sequelize,
@@ -38,7 +36,6 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 app.use(session(sessionSettings));
 app.use(express.json());
-// app.use(express.static(path.join(__dirname, "./public")));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
@@ -49,7 +46,6 @@ app.use(routes);
 // });
 
 // serves home page
-
 // app.get("/home", (req, res) => {
 // 	res.sendFile(path.join(__dirname, "./public/home.html"));
 // });
