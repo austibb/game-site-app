@@ -40,11 +40,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
 
-// serves index page
-app.get("/", (req, res) => {
-	res.sendFile(path.join(__dirname, "./public/index.html"));
-});
-
 // serves home page
 app.get("/home", (req, res) => {
 	res.sendFile(path.join(__dirname, "./public/home.html"));
