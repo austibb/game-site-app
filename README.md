@@ -15,7 +15,7 @@ code to run when starting:
 ```md
 npm init -y
 
-- npm i brycptjs
+- npm i bcryptjs
 - npm i connect-session-sequelize
 - npm i dotenv
 - npm i express

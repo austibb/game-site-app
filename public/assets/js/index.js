@@ -1,9 +1,11 @@
 let enterForm = $('#enterForm');
 let startingEl = $('#startingEl');
 let loginButton = $('#loginButton');
+let loginErrorMessage = $('#loginErrorMessage');
 
 
 enterForm.hide();
+loginErrorMessage.hide();
 
 $('.homePageButton').on('click', function() {
   if ($(this).attr('id') === 'loginBtn') {
@@ -22,6 +24,7 @@ const maybeLogin = () => {
   if (!$('#usernameField').val().trim() || !$('#passwordField').val().trim()) {
     console.log('failed!');
     // renderMainPage();
+    loginErrorMessage.text('Please input a username and password.')
   } else {
     console.log('success');
   }
