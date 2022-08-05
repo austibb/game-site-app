@@ -104,3 +104,4 @@ THEN I am returned to the home page
 ## Stretch Goals
 
 - Games played counter for each user in database
+- apiController gets a GET to fetch all users, can just respond in json
