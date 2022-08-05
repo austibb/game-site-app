@@ -9,6 +9,15 @@ body {
   display: none;
 }
 
+p {
+  margin-bottom: 0em;
+  border-bottom: 0em;
+}
+
+#loginErrorMessage {
+  color: red;
+}
+
 .icons i {
   margin-left: 15px;
   margin-right: 15px;
