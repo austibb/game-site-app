@@ -4,7 +4,7 @@ const { User } = require("./../models");
 
 router.get("/", (req, res) => {
 	res.render("landingPage", {
-		// isLoggedIn: req.session.user,
+		isLoggedIn: req.session.user,
 	});
 });
 
