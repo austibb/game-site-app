@@ -18,6 +18,23 @@ p {
   color: red;
 }
 
+table {
+  margin: 2em;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 200px;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 .icons i {
   margin-left: 15px;
   margin-right: 15px;
