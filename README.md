@@ -1,5 +1,15 @@
 # game-site-app
 
+## Table of Contents
+
+- [Starting](#Starting)
+- [Concept](#Concept)
+- [Scenario](#Scenario)
+- [Criteria](#Criteria)
+- [Stretch Goals](#Stretch-Goals)
+
+## Starting
+
 code to run when starting:
 
 ```md
@@ -15,33 +25,41 @@ npm init -y
 - npm i sequelize
 - npm i fs
 - npm i path
+- npm install socket.io
 ```
 
 git commands:
+
 ```md
 - git add .
 - git commit -m <message in quotes>
+  OR
+- git commit -am <message in quotes>
+  THEN
 - git push origin <branch>
 ```
 
 if branch does not exist yet run this first:
+
 ```md
 - git checkout <branchname>
 ```
 
-## app idea:
+## Concept
+
 - online real-time rock paper scissors
 
 - users will create an account and password to be able to use the app
-will use SQL to store user data and game data
-get and post calls to server api
+  will use SQL to store user data and game data
+  get and post calls to server api
 
 - users can see other user accounts and start/play games with them
-turn based only - current idea is chess
+  turn based only - current idea is chess
 
 - live collaboration/interaction: socket.io
 
 ## Scenario
+
 ```md
 WHEN I click login/enter
 THEN I am prompted to enter credentials or create a new account
@@ -58,6 +76,7 @@ THEN I am returned to the home page
 ```
 
 ## Criteria
+
 - Use Node.js and Express.js to create a RESTful API.
 
 - Use Handlebars.js as the template engine.
@@ -81,3 +100,7 @@ THEN I am returned to the home page
 - Be responsive.
 
 - Be interactive (in other words, accept and respond to user input).
+
+## Stretch Goals
+
+- Games played counter for each user in database
