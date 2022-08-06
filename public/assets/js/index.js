@@ -58,7 +58,7 @@ let loginRequest = async function () {
 			window.location.href = "/home";
 		}
 	} catch (error) {
-		console.error(error);
+		console.log(error);
 		alert(error);
 	}
 };
@@ -69,6 +69,7 @@ let init = () => {
 }
 
 init();
+
 
 
 // event handlers
