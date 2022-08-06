@@ -60,7 +60,7 @@ loginButton.on("click", async function () {
 			window.location.href = "/home";
 		}
 	} catch (error) {
-		console.error(error);
+		console.log(error);
 		alert(error);
 	}
 });
@@ -93,7 +93,7 @@ loginButton.on("click", async function () {
 			window.location.href = "/home";
 		}
 	} catch (error) {
-		console.error(error);
+		console.log(error);
 		alert(error);
 	}
 });
