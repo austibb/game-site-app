@@ -16,7 +16,7 @@ router.get("/home", (req, res) => {
 	}
 });
 
-router.delete("/signout", async (req, res) => {
+router.get("/signout", async (req, res) => {
 	console.log('signout metdhod');
 
 	console.log(req.session.isLoggedIn);
@@ -27,13 +27,14 @@ router.delete("/signout", async (req, res) => {
 		// destroy the session
 		// console.log(req.session.isLoggedIn);
 
-		// req.session.destroy();
+		 req.session.destroy();
 		// console.log(req.session.isLoggedIn);
 		// console.log(req.session.isLoggedIn);
 		// console.log('post delete');
 		// res.clearCookie(this.cookie, { path: '/' });
 		// req.logout();
-		Window.location.href = '/';
+		// return res.redirect("/");
+		// Window.location.href = '/';
 		// console.log('entered');
 		// console.log(req.session.isLoggedIn);
 	} else console.log('no ones logged in');
