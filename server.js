@@ -49,5 +49,5 @@ app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-	app.listen(PORT, () => console.log("WE MADE IT!!! "));
+	server.listen(PORT, () => console.log("WE MADE IT!!! "));
 });
