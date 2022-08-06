@@ -5,11 +5,13 @@ let loginButton = $('#loginButton');
 let loginErrorMessage = $('#loginErrorMessage');
 let usernameField = $('#usernameField')
 let passwordField = $('#passwordField');
+let logoutBtn = $('#logoutBtn');
 
 
 enterForm.hide();
 // loginErrorMessage.hide();
 
+// determines if the user is logging in or signing up
 homePageButton.on('click', function () {
   if ($(this).attr('id') === 'loginBtn') {
     loginButton.text('Login');
@@ -19,6 +21,10 @@ homePageButton.on('click', function () {
   startingEl.hide();
   enterForm.show();
 })
+
+logoutBtn.on('click', () => {
+  alert('logoutbutton clicked');
+});
 
 
 const maybeLogin = () => {
