@@ -1,15 +1,12 @@
 require("dotenv").config();
 const express = require("express");
-const path = require("path");
+// const path = require("path");
 // const fs = require("fs");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-
 const sequelize = require("./config/connection");
-// need to change file here
 const routes = require("./controllers/homepageController");
-// need to make this file too
 // const helpers = require("./utils/helpers");
 
 const hbs = exphbs.create({
@@ -25,6 +22,17 @@ const sessionSettings = {
 	}),
 };
 const app = express();
+
+const http = require("http");
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
+
+io.on("connection", (socket) => {
+	// new client connection
+	// console.log("connected");
+	console.log("User Connected");
+});
 
 const PORT = process.env.PORT || 3001;
 
