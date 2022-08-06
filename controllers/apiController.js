@@ -3,7 +3,17 @@ const bcrypt = require("bcryptjs");
 const { User } = require("./../models");
 
 router.post("/signup", async (req, res) => {
+
 	try {
+		const existingUser = await User.findOne({
+			where: {
+				username: req.body.username,
+			},
+		});
+		// if there is not a username in the database that matches, return an error
+		if (!existingUser) {
+			return res.status(401).json({ error: "Invalid Username" });
+		}
 		// create newUser using the credentials the new user just provided (stored in req.body)
 		const newUser = await User.create(req.body);
 		// save in the session the user and that they are logged in, respond with the newUser in json
@@ -48,17 +58,6 @@ router.post("/signin", async (req, res) => {
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ error });
-	}
-});
-
-router.post("/signout", async (req, res) => {
-	// if user isLoggedIn = true
-	if (req.session.isLoggedIn) {
-		// destroy the session
-		req.session.destroy(() => {
-			//  respond with success: true
-			res.json({ success: true });
-		});
 	}
 });
 
