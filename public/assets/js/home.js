@@ -30,11 +30,12 @@ function challengePlayer() {
     let playerEl = $(this).children();
     let name = playerEl.data('username');
     // console.log(playerEl);
-    console.log(playerEl.text(name + '    wins: ' + playerEl.data('wincount')));
+    playerEl.html(name + '&nbsp; &nbsp; &nbsp; &nbsp; wins: ' + playerEl.data('wincount'));
+    console.log(playerEl.text());
 
 };
 
 // setInterval(loadOnlinePlayers, 5000);
-onlineTable.on('click', '.player', challengePlayer);
+onlineTable.on('mouseover', '.player', challengePlayer);
 
 loadOnlinePlayers();
