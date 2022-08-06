@@ -1,22 +1,28 @@
-const homePageButton = $(".homePageButton");
-const enterForm = $("#enterForm");
-const startingEl = $("#startingEl");
-const loginButton = $("#loginButton");
-const loginErrorMessage = $("#loginErrorMessage");
-const usernameField = $("#usernameField");
-const passwordField = $("#passwordField");
+let homePageButton = $('.homePageButton');
+let enterForm = $('#enterForm');
+let startingEl = $('#startingEl');
+let loginButton = $('#loginButton');
+let loginErrorMessage = $('#loginErrorMessage');
+let usernameField = $('#usernameField')
+let passwordField = $('#passwordField');
+let logoutBtn = $('#logoutBtn');
 
 enterForm.hide();
 // loginErrorMessage.hide();
 
-homePageButton.on("click", function () {
-	if ($(this).attr("id") === "loginBtn") {
-		loginButton.text("Login");
-	} else {
-		loginButton.text("Register");
-	}
-	startingEl.hide();
-	enterForm.show();
+// determines if the user is logging in or signing up
+homePageButton.on('click', function () {
+  if ($(this).attr('id') === 'loginBtn') {
+    loginButton.text('Login');
+  } else {
+    loginButton.text('Register');
+  }
+  startingEl.hide();
+  enterForm.show();
+})
+
+logoutBtn.on('click', () => {
+  alert('logoutbutton clicked');
 });
 
 loginButton.on("click", async function () {
