@@ -8,6 +8,14 @@ router.get("/", (req, res) => {
 	});
 });
 
+router.get("/home", (req, res) => {
+	if (!req.session.isLoggedIn) {
+		return res.redirect("/");
+	} else {
+		res.render("home");
+	}
+});
+
 router.use("/api", apiController);
 
 module.exports = router;
