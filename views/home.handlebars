@@ -8,12 +8,46 @@
 	<h5 id="winRecord"></h5>
 
 </div>
-<div>
-	<!-- gamespace -->
-</div>
+<button id="playBtn">Play</button>
+
+<section id="gameGUI">
+	<div class="score">
+		<div class="playerScore">
+			<h2>Player</h2>
+			<p class="p-count count">0</p>
+
+		</div>
+		<div class="computerScore">
+			<h2>Computer</h2>
+			<p class="c-count count">0</p>
+
+		</div>
+	</div>
+
+	<div class="move">Choose your move</div>
+
+	<!--Number of moves left before game ends -->
+	<div class="movesleft">Moves Left: 10 </div>
+
+	<!--Options available to player to play game -->
+	<div class="options">
+		<button id="rockBtn">Rock</button>
+		<button id="paperBtn">Paper</button>
+		<button id="scissorBtn">Scissors</button>
+	</div>
+
+	<!--Final result of game -->
+	<div id="result"></div>
+
+	<!--Reload the game -->
+	<button class="reload"></button>
+</section>
+
+{{! <button id="playBtn">Play</button> }}
 
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
 ></script>
-{{!-- <script src="/assets/js/index.js"></script>
-<script src="/assets/js/home.js"></script> --}}
+<script src="assets/js/game.js"></script>
+{{! <script src="/assets/js/index.js"></script>
+<script src="/assets/js/home.js"></script> }}
