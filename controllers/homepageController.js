@@ -13,27 +13,40 @@ router.get("/home", async (req, res) => {
 		return res.redirect("/");
 	} else {
 		const dbUsersData = await User.findAll();
-		const users = dbUsersData.map(dbUser => dbUser.get({plain: true}));
+		const users = dbUsersData.map((dbUser) => dbUser.get({ plain: true }));
 		console.log(req.session.user);
-		res.render("home", { 
+		res.render("home", {
 			users,
 			user: req.session.user,
-			winratio: parseInt(req.session.user.wins) / parseInt(req.session.user.gamesPlayed)
+			winratio:
+				parseInt(req.session.user.wins) /
+				parseInt(req.session.user.gamesPlayed),
 		});
 	}
 });
 
 router.get("/signout", (req, res) => {
-	console.log('signout metdhod');
+	console.log("signout metdhod");
 
 	console.log(req.session.isLoggedIn);
-	console.log('console');
+	console.log("console");
 	if (req.session.isLoggedIn) {
-		console.log('entered if statement');
+		console.log("entered if statement");
 		req.session.destroy();
-		console.log('logged out!')
+		console.log("logged out!");
 		// res.redirect('/');
-	} else console.log('no ones logged in');
+	} else console.log("no ones logged in");
+});
+
+router.get("/profile", async (req, res) => {
+	const dbUsersData = await User.findAll();
+	const users = dbUsersData.map((dbUser) => dbUser.get({ plain: true }));
+	res.render("profile", {
+		users,
+		user: req.session.user,
+		winratio:
+			parseInt(req.session.user.wins) / parseInt(req.session.user.gamesPlayed),
+	});
 });
 
 router.use("/api", apiController);
