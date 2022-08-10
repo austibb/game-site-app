@@ -57,6 +57,7 @@ router.post("/signin", async (req, res) => {
 		});
 	} catch (error) {
 		console.error(error);
+		console.log('not signed in');
 		res.status(500).json({ error });
 	}
 });

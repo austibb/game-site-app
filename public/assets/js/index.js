@@ -7,6 +7,7 @@ let usernameField = $("#usernameField");
 let passwordField = $("#passwordField");
 // let logoutBtn = $("#logoutBtn");
 let registerBtn = $("#registerBtn");
+var username = 'default';
 
 // loginErrorMessage.hide();
 
@@ -31,7 +32,8 @@ let loginRequest = async function () {
 		alert("Please input a valid username and password.");
 	}
 
-	const username = usernameField.val();
+	username = usernameField.val();
+	// console.log(username);
 	const password = passwordField.val();
 
 	let fetchURL;
@@ -54,14 +56,20 @@ let loginRequest = async function () {
 
 		let x = await response.json();
 		if (x.success) {
-			console.log(x);
-			window.location.href = "/home";
+			tester(x);
 		}
 	} catch (error) {
 		console.log(error);
-		alert(error);
+		// alert(error);
 	}
 };
+
+let tester = (x) => {
+	console.log(username);
+	console.log(x);
+	window.location.href = "/home";
+
+}
 
 // init function
 let init = () => {

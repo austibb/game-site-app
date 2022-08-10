@@ -105,3 +105,4 @@ THEN I am returned to the home page
 
 - Games played counter for each user in database
 - apiController gets a GET to fetch all users, can just respond in json
+- Return user to landing page on sign out

@@ -9,6 +9,7 @@ let logout = async () => {
 				"Content-Type": "application/json",
 			}
 		});
+        // Window.location.href = '/';
 	} catch (error) {
 		console.error(error);
 		alert(error);
