@@ -1,19 +1,31 @@
 <!-- body of the page -->
 <div id="sidebar">
 	<!-- holds the online/playable users? -->
-	<table id="onlineTable">
-		<tr><th>Leaderboard:</th></tr>
+	<table id="leaderboard">
+		<tr>
+			<th>Leaderboard:</th>
+		</tr>
+		{{#each users as |x| }}
+		{{!-- accesses partial to populate table --}}
+		{{> leaderboard_row}}
+		{{/each}}
 	</table>
-	<h3 id="username">{{users}}</h3>
-	<h5 id="winRecord"></h5>
+	<h3 id="username">{{user.username}}</h3>
+	<h5 id="winRecord">
+		{{!-- {{ (1/4) }} --}}
+		<span>Wins:</span>
+		{{user.wins}}
+		<Span>Ratio:</Span>
+		{{winratio}}
+		is logged in: {{isLoggedIn}}
+	</h5>
 
 </div>
 <div>
 	<!-- gamespace -->
 </div>
 
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
-></script>
-{{!-- <script src="/assets/js/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{{!--
+<script src="/assets/js/index.js"></script>
 <script src="/assets/js/home.js"></script> --}}
