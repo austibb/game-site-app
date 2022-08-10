@@ -1,5 +1,17 @@
 <!-- body of the page -->
-<div id="sidebar">
+	{{!-- <div id="currentUser" class="d-flex">
+	<p id="username">{{user.username }}- </p>
+	<p id="winRecord">
+		{{!-- {{ (1/4) }} --}}
+		{{!-- <span>Wins:</span>
+		{{user.wins}}
+		<Span>Ratio:</Span>
+		{{winratio}}
+		is logged in: {{isLoggedIn}} --}}
+	{{!-- </p>
+</div> --}}
+<div class="d-flex">
+<div id="leaderboardSidebar" class="align-self-start" >
 	<!-- holds the online/playable users? -->
 	<table id="leaderboard">
 		<tr>
@@ -10,20 +22,10 @@
 		{{> leaderboard_row}}
 		{{/each}}
 	</table>
-	<h3 id="username">{{user.username}}</h3>
-	<h5 id="winRecord">
-		{{!-- {{ (1/4) }} --}}
-		<span>Wins:</span>
-		{{user.wins}}
-		<Span>Ratio:</Span>
-		{{winratio}}
-		is logged in: {{isLoggedIn}}
-	</h5>
-
-</div>
+	</div>
 <button id="playBtn">Play</button>
 
-<section id="gameGUI">
+<section id="gameGUI" class="align-self-end">
 	<div class="score">
 		<div class="playerScore">
 			<h2>Player</h2>
@@ -55,7 +57,7 @@
 	<!--Reload the game -->
 	<button class="reload"></button>
 </section>
-
+</div>
 {{! <button id="playBtn">Play</button> }}
 
 

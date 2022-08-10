@@ -109,4 +109,5 @@ const game = () => {
 $("#playBtn").click(function () {
 	$("#gameGUI").show();
 	game();
+	$("#playBtn").hide();
 });
