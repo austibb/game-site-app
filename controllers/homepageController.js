@@ -16,11 +16,9 @@ router.get("/home", async (req, res) => {
 		const users = dbUsersData.map(dbUser => dbUser.get({plain: true}));
 		console.log(req.session.user);
 		res.render("home", { 
-			// include information for handlebars to call in brackets
 			users,
-			isLoggedIn: req.session.isLoggedIn,
 			user: req.session.user,
-			// username: req.session.username
+			winratio: parseInt(req.session.user.wins) / parseInt(req.session.user.gamesPlayed)
 		});
 	}
 });
