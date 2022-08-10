@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 	});
 });
 
-router.get("/home", (req, res) => {
+router.get("/home", async (req, res) => {
 	if (!req.session.isLoggedIn) {
 		return res.redirect("/");
 	} else {
