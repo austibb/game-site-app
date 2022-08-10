@@ -1,7 +1,34 @@
 
 // on load, pulls and stores all data on users
 let onlineTable = $('#onlineTable');
+// const socket = io();
+//  socket.emit('login',{userId:'YourUserID'});
 
+// const host = "http://yourdomain.com";
+// // PASS your query parameters
+// const queryParams = { userId: 123 };
+// const socket = io(host, {
+//     path: "/pathToConnection",
+//     transports: ['websocket'],  // https://stackoverflow.com/a/52180905/8987128
+//     upgrade: false,
+//     query: queryParams,
+//     reconnection: false,
+//     rejectUnauthorized: false
+// });
+
+// socket.once("connect", () => {
+    
+//     // USER IS ONLINE
+//     socket.on("online", (userId) => {
+//         console.log(userId, "Is Online!"); // update online status
+//     });
+
+//     // USER IS OFFLINE
+//     socket.on("offline", (userId) => {
+//         console.log(userId, "Is Offline!"); // update offline status
+//     });
+
+// });
 
 
 let placeholderuserDB = [
@@ -37,5 +64,11 @@ function challengePlayer() {
 
 // setInterval(loadOnlinePlayers, 5000);
 onlineTable.on('mouseover', '.player', challengePlayer);
+let loadMain = () => {
+    loadOnlinePlayers();
+    console.log(username);
+    // console.log(usernameField.text())
+    $('#username').text(username);
+}
 
-loadOnlinePlayers();
+loadMain();

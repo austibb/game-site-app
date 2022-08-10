@@ -32,6 +32,22 @@ User.init(
 				len: [8],
 			},
 		},
+		gamesPlayed: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			validate: {
+				notNull: true,
+				len: [8],
+			},
+		},
+		wins: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			validate: {
+				notNull: true,
+				len: [8],
+			},
+		},
 	},
 	{
 		// creating hooks for the users
