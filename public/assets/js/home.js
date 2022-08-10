@@ -1,6 +1,6 @@
 
 // on load, pulls and stores all data on users
-let onlineTable = $('#onlineTable');
+let leaderboard = $('#leaderboard');
 // const socket = io();
 //  socket.emit('login',{userId:'YourUserID'});
 
@@ -42,17 +42,6 @@ let placeholderuserDB = [
     {username:'player 8', wincount:'1'}
 ]
 
-function loadOnlinePlayers() {
-    onlineTable.empty();
-    onlineTable.append($('<tr><th>Currently Online:</th></tr>'))
-    for (person of placeholderuserDB) {
-        let row = $('<p>');
-        row.text(person.username)
-        .data('wincount', person.wincount).data('username', person.username);
-        onlineTable.append($('<tr>').append($('<td>').data('wincount', person.wincount).addClass('player').append(row)));
-    }
-};
-
 function challengePlayer() {
     let playerEl = $(this).children();
     let name = playerEl.data('username');
@@ -62,10 +51,19 @@ function challengePlayer() {
 
 };
 
+let showWins = function() {
+    $(this).find('.wins').show();
+};
+
+let concealWins = function() {
+    $(this).find('.wins').hide();
+};
+
 // setInterval(loadOnlinePlayers, 5000);
-onlineTable.on('mouseover', '.player', challengePlayer);
+leaderboard.on('mouseenter', '.player', showWins);
+leaderboard.on('mouseleave', '.player', concealWins);
 let loadMain = () => {
-    loadOnlinePlayers();
+    // loadOnlinePlayers();
     // console.log(username);
     // console.log(usernameField.text())
     // $('#username').text(username);

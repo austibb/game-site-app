@@ -38,7 +38,7 @@ router.post("/signin", async (req, res) => {
 		});
 		// if there is not a username in the database that matches, return an error
 		if (!existingUser) {
-			return res.status(401).json({ error: "Invalid Username" });
+			return res.json({ error: "401: Invalid Username" });
 		}
 		// uses bcrypt to compare the encrypted password in the database to the entered password
 		const doesPasswordMatch = await bcrypt.compare(
@@ -48,13 +48,14 @@ router.post("/signin", async (req, res) => {
 		// if the password does not match, return an error
 		if (!doesPasswordMatch) {
 			return res.status(401).json({ error: "Invalid Password" });
+		} else {
+			// save into the session the existingUser, isLoggedIn to true, and respond with success: true
+			req.session.save(() => {
+				req.session.user = existingUser;
+				req.session.isLoggedIn = true;
+				res.json({ success: true });
+			});
 		}
-		// save into the session the existingUser, isLoggedIn to true, and respond with success: true
-		req.session.save(() => {
-			req.session.user = existingUser;
-			req.session.isLoggedIn = true;
-			res.json({ success: true });
-		});
 	} catch (error) {
 		console.error(error);
 		console.log('not signed in');
