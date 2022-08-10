@@ -66,9 +66,9 @@ function challengePlayer() {
 onlineTable.on('mouseover', '.player', challengePlayer);
 let loadMain = () => {
     loadOnlinePlayers();
-    console.log(username);
+    // console.log(username);
     // console.log(usernameField.text())
-    $('#username').text(username);
+    // $('#username').text(username);
 }
 
 loadMain();
