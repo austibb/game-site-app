@@ -1,112 +1,138 @@
+// const { play } = require("@sinisterdev/rock-paper-scissor");
+// const e = require("express");
+
 $("#gameGUI").hide();
+var userScore = 0;
+var compScore = 0;
+var moves = 0;
 
-const game = () => {
-	let userScore = 0;
-	let compScore = 0;
-	let moves = 0;
+const result = $("#result");
+const reloadBtn = $(".reload");
+const rockBtn = $("#rockBtn");
+const paperBtn = $("#paperBtn");
+const scissorBtn = $("#scissorBtn");
+const playerOptions = [rockBtn, paperBtn, scissorBtn];
+const compOptions = ["Rock", "Paper", "Scissors"];
+const movesLeft = $(".movesLeft");
+var inGame = false;
 
-	const playGame = () => {
-		const rockBtn = $("#rockBtn");
-		const paperBtn = $("#paperBtn");
-		const scissorBtn = $("#scissorBtn");
-		const playerOptions = [rockBtn, paperBtn, scissorBtn];
-		const compOptions = ["rock", "paper", "scissors"];
-
-		playerOptions.forEach((option) => {
-			option.click(function () {
-				const movesLeft = $(".movesLeft");
+const playGame = () => {
+	playerOptions.forEach((option) => {
+		option.on('click', function () {
+			if (inGame) {
 				moves++;
 				movesLeft.text(`Moves Left: ${10 - moves}`);
-
-				const choiceNumber = Math.floor(Math.random() * 3);
-				const compChoice = compOptions[choiceNumber];
+				const compChoice = compOptions[Math.floor(Math.random() * 3)];
 
 				winner(this.innerText, compChoice);
 
 				if (moves == 10) {
 					gameOver(playerOptions, movesLeft);
+					inGame = false;
 				}
-			});
-		});
-	};
-	const winner = (player, computer) => {
-		const result = $("#result");
-		const playerScoreBoard = document.querySelector(".p-count");
-		const computerScoreBoard = document.querySelector(".c-count");
-		console.log(player);
-		console.log(computer);
-		if (player === computer) {
-			$("#result").text("Draw");
-		} else if (player == "rock") {
-			if (computer == "paper") {
-				$("#result").text("Computer Wins");
-				compScore++;
-				computerScoreBoard.text(compScore);
-			} else {
-				$("#result").text("Player Wins");
-				userScore++;
-				playerScoreBoard.text(userScore);
 			}
-		} else if (player == "scissors") {
-			if (computer == "rock") {
-				$("#result").text("Computer Wins");
-				compScore++;
-				computerScoreBoard.text(compScore);
-			} else {
-				$("#result").text("Player Wins");
-				userScore++;
-				playerScoreBoard.text(userScore);
-			}
-		} else if (player == "paper") {
-			if (computer == "scissors") {
-				$("#result").text("Computer Wins");
-				compScore++;
-				computerScoreBoard.text(compScore);
-			} else {
-				$("#result").text("Player Wins");
-				userScore++;
-				playerScoreBoard.text(userScore);
-			}
-		}
-	};
-	const gameOver = (playerOptions, movesLeft) => {
-		const chooseMove = $(".move");
-		const result = $("#result");
-		const reloadBtn = $(".reload");
 
-		playerOptions.forEach((option) => {
-			// option.css("none");
 		});
-
-		chooseMove.text("Game Over!");
-		// movesLeft.style.display = "none";
-
-		if (userScore > compScore) {
-			$("#result").css({ color: "green", "font-size": "2rem" });
-			// result.style.fontSize = "2rem";
-			$("#result").text("You Won The Game");
-			// result.style.color = "#308D46";
-		} else if (userScore < compScore) {
-			$("#result").css({ color: "red", "font-size": "2rem" });
-			// result.style.fontSize = "2rem";
-			$("#result").text("You Lost The Game");
-			// result.style.color = "red";
-		} else {
-			$("#result").css({ color: "grey", "font-size": "2rem" });
-			// result.style.fontSize = "2rem";
-			$("#result").text("Draw");
-			// result.style.color = "grey";
-		}
-		reloadBtn.text("Restart");
-		// reloadBtn.style.display = "flex";
-		reloadBtn.on("click", () => {
-			window.location.reload();
-		});
-	};
-	playGame();
+	});
 };
 
-$("#playBtn").click(function () {
+const winner = (player, computer) => {
+	const playerScoreBoard = $(".p-count");
+	const computerScoreBoard = $(".c-count");
+	console.log(player);
+	console.log(computer);
+	if (player == computer) {
+		console.log('draw!');
+	} else {
+		switch (player + computer) {
+			case 'RockPaper':
+				console.log('computer win');
+				compScore++;
+				computerScoreBoard.text(compScore);
+				break;
+			case 'ScissorsRock':
+				console.log('computer win');
+				compScore++;
+				computerScoreBoard.text(compScore);
+				break;
+			case 'PaperScissors':
+				console.log('computer win');
+				computerScoreBoard.text(compScore);
+				compScore++;
+				break;
+			case 'PaperRock':
+				console.log('player win');
+				userScore++;
+				playerScoreBoard.text(userScore);
+				break;
+			case 'RockScissors':
+				console.log('player win');
+				userScore++;
+				playerScoreBoard.text(userScore);
+				break;
+			case 'ScissorsPaper':
+				console.log('player win');
+				userScore++;
+				playerScoreBoard.text(userScore);
+				break;
+		}
+	};
+
+};
+const gameOver = (playerOptions, movesLeft) => {
+	const chooseMove = $(".move");
+
+	// playerOptions.forEach((option) => {
+	// 	// option.css("none");
+	// });
+
+	chooseMove.text("Game Over!");
+	// movesLeft.hide();
+
+	if (userScore > compScore) {
+		result.css({ color: "green", "font-size": "2rem" });
+		result.text("You Won The Game");
+		updateDB(true);
+	} else if (userScore < compScore) {
+		result.css({ color: "red", "font-size": "2rem" });
+		result.text("You Lost The Game");
+		updateDB(false);
+	} else {
+		result.css({ color: "grey", "font-size": "2rem" });
+		result.text(false);
+		updateDB('loss');
+	}
+	reloadBtn.text("Play Again");
+	// reloadBtn.style.display = "flex";
+
+};
+
+var updateDB = function (win) {
+	let body;
+	if (win) {
+		body = 'sdfs';
+	} else {
+		body = "api/signup";
+	}
+	try {
+		const newTodo = await Todo.create({
+			todo: req.body.todo,
+			userId: req.session.user.id,
+		});
+		res.json(newTodo);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ error });
+	}
+};
+
+reloadBtn.on("click", function () {
+	console.log($(this).text())
+	window.location.reload();
+});
+$("#playBtn").on('click', function () {
+	inGame = true;
 	$("#gameGUI").show();
-	game();
+	$(this).hide();
+	playGame();
 });
