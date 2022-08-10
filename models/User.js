@@ -37,7 +37,6 @@ User.init(
 			allowNull: false,
 			validate: {
 				notNull: true,
-				len: [8],
 			},
 		},
 		wins: {
@@ -45,7 +44,6 @@ User.init(
 			allowNull: false,
 			validate: {
 				notNull: true,
-				len: [8],
 			},
 		},
 	},

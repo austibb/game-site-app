@@ -12,7 +12,16 @@ router.get("/home", (req, res) => {
 	if (!req.session.isLoggedIn) {
 		return res.redirect("/");
 	} else {
-		res.render("home");
+		const dbUsersData = await User.findAll();
+		const users = dbUsersData.map(dbUser => dbUser.get({plain: true}));
+		console.log(req.session.user);
+		res.render("home", { 
+			// include information for handlebars to call in brackets
+			users,
+			isLoggedIn: req.session.isLoggedIn,
+			user: req.session.user,
+			// username: req.session.username
+		});
 	}
 });
 
