@@ -28,7 +28,7 @@ table, th, td {
 	height: 100vh;
 	/* display: flex; */
 	flex-direction: column;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 }
 /*  */
 
@@ -40,7 +40,10 @@ table, th, td {
 	font-size: 150%;
 }
 
-
+#leaderboardSidebar {
+	height: 25vh;
+	max-height: 50vh;
+}
 
 #gameField {
 	display: flex;

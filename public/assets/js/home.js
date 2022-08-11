@@ -1,34 +1,6 @@
 // on load, pulls and stores all data on users
 let leaderboard = $("#leaderboard");
 let userCount = $("#userCount");
-// const socket = io();
-//  socket.emit('login',{userId:'YourUserID'});
-
-// const host = "http://yourdomain.com";
-// // PASS your query parameters
-// const queryParams = { userId: 123 };
-// const socket = io(host, {
-//     path: "/pathToConnection",
-//     transports: ['websocket'],  // https://stackoverflow.com/a/52180905/8987128
-//     upgrade: false,
-//     query: queryParams,
-//     reconnection: false,
-//     rejectUnauthorized: false
-// });
-
-// socket.once("connect", () => {
-
-//     // USER IS ONLINE
-//     socket.on("online", (userId) => {
-//         console.log(userId, "Is Online!"); // update online status
-//     });
-
-//     // USER IS OFFLINE
-//     socket.on("offline", (userId) => {
-//         console.log(userId, "Is Offline!"); // update offline status
-//     });
-
-// });
 
 var socket = io.connect();
 
@@ -53,11 +25,9 @@ let placeholderuserDB = [
 function challengePlayer() {
 	let playerEl = $(this).children();
 	let name = playerEl.data("username");
-	// console.log(playerEl);
 	playerEl.html(
 		name + "&nbsp; &nbsp; &nbsp; &nbsp; wins: " + playerEl.data("wincount")
 	);
-	console.log(playerEl.text());
 }
 
 let showWins = function () {
@@ -68,14 +38,23 @@ let concealWins = function () {
 	$(this).find(".wins").hide();
 };
 
-// setInterval(loadOnlinePlayers, 5000);
-leaderboard.on("mouseenter", ".player", showWins);
-leaderboard.on("mouseleave", ".player", concealWins);
+let orderLeaderboard = () => {
+	let rows = $('.player').toArray();
+	console.log(rows);
+	for (row of rows) {
+	}
+}
+
 let loadMain = () => {
 	// loadOnlinePlayers();
 	// console.log(username);
 	// console.log(usernameField.text())
 	// $('#username').text(username);
+	orderLeaderboard();
 };
+
+// setInterval(loadOnlinePlayers, 5000);
+leaderboard.on("mouseenter", ".player", showWins);
+leaderboard.on("mouseleave", ".player", concealWins);
 
 loadMain();
