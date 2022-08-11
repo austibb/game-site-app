@@ -1,7 +1,7 @@
 {
 	"name": "game-site-app",
 	"version": "1.0.0",
-	"description": "app idea: online chess app portal",
+	"description": "Online Rock Paper Scissors",
 	"main": "server.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
@@ -29,5 +29,8 @@
 		"nodemon": "^2.0.19",
 		"sequelize": "^6.21.3",
 		"socket.io": "^4.5.1"
+	},
+	"engines": {
+		"node": "16.x"
 	}
 }
