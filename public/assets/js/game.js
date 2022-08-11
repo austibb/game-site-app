@@ -18,7 +18,7 @@ var inGame = false;
 
 const playGame = () => {
 	playerOptions.forEach((option) => {
-		option.on('click', function () {
+		option.on("click", function () {
 			if (inGame) {
 				moves++;
 				movesLeft.text(`Moves Left: ${10 - moves}`);
@@ -31,7 +31,6 @@ const playGame = () => {
 					inGame = false;
 				}
 			}
-
 		});
 	});
 };
@@ -42,42 +41,41 @@ const winner = (player, computer) => {
 	console.log(player);
 	console.log(computer);
 	if (player == computer) {
-		console.log('draw!');
+		console.log("draw!");
 	} else {
 		switch (player + computer) {
-			case 'RockPaper':
-				console.log('computer win');
+			case "RockPaper":
+				console.log("computer win");
 				compScore++;
 				computerScoreBoard.text(compScore);
 				break;
-			case 'ScissorsRock':
-				console.log('computer win');
+			case "ScissorsRock":
+				console.log("computer win");
 				compScore++;
 				computerScoreBoard.text(compScore);
 				break;
-			case 'PaperScissors':
-				console.log('computer win');
+			case "PaperScissors":
+				console.log("computer win");
 				computerScoreBoard.text(compScore);
 				compScore++;
 				break;
-			case 'PaperRock':
-				console.log('player win');
+			case "PaperRock":
+				console.log("player win");
 				userScore++;
 				playerScoreBoard.text(userScore);
 				break;
-			case 'RockScissors':
-				console.log('player win');
+			case "RockScissors":
+				console.log("player win");
 				userScore++;
 				playerScoreBoard.text(userScore);
 				break;
-			case 'ScissorsPaper':
-				console.log('player win');
+			case "ScissorsPaper":
+				console.log("player win");
 				userScore++;
 				playerScoreBoard.text(userScore);
 				break;
 		}
-	};
-
+	}
 };
 const gameOver = (playerOptions, movesLeft) => {
 	const chooseMove = $(".move");
@@ -100,17 +98,16 @@ const gameOver = (playerOptions, movesLeft) => {
 	} else {
 		result.css({ color: "grey", "font-size": "2rem" });
 		result.text(false);
-		updateDB('loss');
+		updateDB("loss");
 	}
 	reloadBtn.text("Play Again");
 	// reloadBtn.style.display = "flex";
-
 };
 
-var updateDB = function (win) {
+var updateDB = async function (win) {
 	let body;
 	if (win) {
-		body = 'sdfs';
+		body = "sdfs";
 	} else {
 		body = "api/signup";
 	}
@@ -127,10 +124,10 @@ var updateDB = function (win) {
 };
 
 reloadBtn.on("click", function () {
-	console.log($(this).text())
+	console.log($(this).text());
 	window.location.reload();
 });
-$("#playBtn").on('click', function () {
+$("#playBtn").on("click", function () {
 	inGame = true;
 	$("#gameGUI").show();
 	$(this).hide();
