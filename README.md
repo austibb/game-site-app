@@ -23,8 +23,6 @@ npm init -y
 - npm i express-session
 - npm i mysql2
 - npm i sequelize
-- npm i fs
-- npm i path
 - npm i socket.io
 ```
 

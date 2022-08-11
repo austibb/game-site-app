@@ -34,17 +34,12 @@ User.init(
 		},
 		gamesPlayed: {
 			type: DataTypes.STRING,
-			allowNull: false,
-			validate: {
-				notNull: true,
-			},
+			defaultValue: 0,
 		},
+
 		wins: {
 			type: DataTypes.STRING,
-			allowNull: false,
-			validate: {
-				notNull: true,
-			},
+			defaultValue: 0,
 		},
 	},
 	{

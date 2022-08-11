@@ -1,11 +1,12 @@
-// const { play } = require("@sinisterdev/rock-paper-scissor");
-// const e = require("express");
+let gamesPlayed = 0;
 
+// sets moves and scores to baseline
 $("#gameGUI").hide();
 var userScore = 0;
 var compScore = 0;
 var moves = 0;
 
+// all required DOM elements
 const result = $("#result");
 const reloadBtn = $(".reload");
 const rockBtn = $("#rockBtn");
@@ -17,17 +18,22 @@ const movesLeft = $(".movesLeft");
 var inGame = false;
 
 const playGame = () => {
+	// on click of any of the player options
 	playerOptions.forEach((option) => {
 		option.on("click", function () {
+			// if inGame, increment up moves up, set the text of moves left to 10-amount of moves taken
 			if (inGame) {
 				moves++;
 				movesLeft.text(`Moves Left: ${10 - moves}`);
+				// then make the computer make a random choice
 				const compChoice = compOptions[Math.floor(Math.random() * 3)];
-
+				// winner function takes the user input (the buttons text = the input) and the computer choice
 				winner(this.innerText, compChoice);
-
+				// if 10 moves have been made
 				if (moves == 10) {
+					// gameOver function takes the playerOptions and movesLeft
 					gameOver(playerOptions, movesLeft);
+					// set inGame to false
 					inGame = false;
 				}
 			}
@@ -79,14 +85,7 @@ const winner = (player, computer) => {
 };
 const gameOver = (playerOptions, movesLeft) => {
 	const chooseMove = $(".move");
-
-	// playerOptions.forEach((option) => {
-	// 	// option.css("none");
-	// });
-
 	chooseMove.text("Game Over!");
-	// movesLeft.hide();
-
 	if (userScore > compScore) {
 		result.css({ color: "green", "font-size": "2rem" });
 		result.text("You Won The Game");
@@ -97,11 +96,10 @@ const gameOver = (playerOptions, movesLeft) => {
 		updateDB(false);
 	} else {
 		result.css({ color: "grey", "font-size": "2rem" });
-		result.text(false);
+		result.text("Draw");
 		updateDB("loss");
 	}
 	reloadBtn.text("Play Again");
-	// reloadBtn.style.display = "flex";
 };
 
 var updateDB = async function (win) {
@@ -111,16 +109,6 @@ var updateDB = async function (win) {
 	} else {
 		body = "api/signup";
 	}
-	try {
-		const newTodo = await Todo.create({
-			todo: req.body.todo,
-			userId: req.session.user.id,
-		});
-		res.json(newTodo);
-	} catch (error) {
-		console.error(error);
-		res.status(500).json({ error });
-	}
 };
 
 reloadBtn.on("click", function () {
@@ -128,6 +116,7 @@ reloadBtn.on("click", function () {
 	window.location.reload();
 });
 $("#playBtn").on("click", function () {
+	gamesPlayed++;
 	inGame = true;
 	$("#gameGUI").show();
 	$(this).hide();
