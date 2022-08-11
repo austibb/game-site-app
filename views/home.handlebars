@@ -24,8 +24,9 @@
 				{{> leaderboard_row}}
 				{{/each}}
 			</table>
-			<h3 id="userCount">
-			</h3>
+			<br>
+			<h3 id="userCount"></h3>
+			<br>
 		</div>
 	</div>
 
@@ -35,30 +36,36 @@
 			<div class="score">
 				<div class="playerScore">
 					<h2>Player</h2>
+					<br>
 					<p class="p-count count">0</p>
 
 				</div>
 				<div class="computerScore">
 					<h2>Computer</h2>
+					<br>
 					<p class="c-count count">0</p>
-
 				</div>
 			</div>
+			<br>
+
+
+			<br>
+
+			<br>
 
 			<div class="move">Choose your move</div>
 
 			<!--Number of moves left before game ends -->
 			<div class="movesleft">Moves Left: 10 </div>
-
+			<!--Final result of game -->
+			<div id="result"></div>
+			<br><br><br>
 			<!--Options available to player to play game -->
 			<div class="options">
 				<button id="rockBtn" class="btn btn-info">Rock</button>
 				<button id="paperBtn" class="btn btn-info">Paper</button>
 				<button id="scissorBtn" class="btn btn-info">Scissors</button>
 			</div>
-
-			<!--Final result of game -->
-			<div id="result"></div>
 
 			<!--Reload the game -->
 			<button class="reload btn btn-info">Quit</button>
