@@ -1,16 +1,14 @@
 require("dotenv").config();
 const express = require("express");
-// const path = require("path");
-// const fs = require("fs");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const sequelize = require("./config/connection");
 const routes = require("./controllers/homepageController");
-// const helpers = require("./utils/helpers");
+const helpers = require("./utils/helpers");
 
 const hbs = exphbs.create({
-	// helpers,
+	helpers,
 });
 
 const sessionSettings = {
@@ -28,19 +26,25 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
+var userCount = 0;
 io.on("connection", (socket) => {
 	// new client connection
-	// console.log("connected");
 	console.log("User Connected");
+	userCount++;
+	io.sockets.emit("userCount", { userCount: userCount });
+	socket.on("disconnect", function () {
+		userCount--;
+		io.sockets.emit("userCount", { userCount: userCount });
+	});
 });
 
 const PORT = process.env.PORT || 3001;
 
-// Template Engine Setup
+// handlebars setup
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
-// middlewares
+// middleware setups
 app.use(express.static("public"));
 app.use(session(sessionSettings));
 app.use(express.json());

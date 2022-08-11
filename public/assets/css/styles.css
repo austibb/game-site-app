@@ -3,10 +3,10 @@
 	border: none;
 }
 
-#leaderboardSidebar {
-	/* padding: 3em; */
-	/* float:left; */
-};
+/* #leaderboardSidebar {
+	padding: 3em;
+	float:left;
+}; */
 
 table, th, td {
 	border: 1px solid;
@@ -19,9 +19,6 @@ table, th, td {
 }
 
 #gameField {
-	/* padding: 3em; */
-	/* display: inline; */
-	/* margin-left: 25%; */
 	width: 75%;
 	float: right;
 }
@@ -33,4 +30,12 @@ table, th, td {
 .sidebar {
 	float:left;
 	width: 25%;
+}
+/*  */
+.leaderboard {
+	border: 1px solid black;
+}
+
+.leaderboard table {
+	font-size: 150%;
 }

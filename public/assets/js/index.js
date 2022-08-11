@@ -7,7 +7,7 @@ let usernameField = $("#usernameField");
 let passwordField = $("#passwordField");
 // let logoutBtn = $("#logoutBtn");
 let registerBtn = $("#registerBtn");
-var username = 'default';
+var username = "default";
 
 // loginErrorMessage.hide();
 
@@ -68,17 +68,14 @@ let tester = (x) => {
 	console.log(username);
 	console.log(x);
 	window.location.href = "/home";
-
-}
+};
 
 // init function
 let init = () => {
 	enterForm.hide();
-}
+};
 
 init();
-
-
 
 // event handlers
 // logoutBtn.on("click", logout);
