@@ -3,6 +3,7 @@
 	border: none;
 }
 
+austins
 #leaderboardSidebar {
 	/* padding: 3em; */
 	/* float:left; */
@@ -33,4 +34,12 @@ table, th, td {
 .sidebar {
 	float:left;
 	width: 25%;
+
+maxs
+.leaderboard {
+	border: 1px solid black;
+}
+
+.leaderboard table {
+	font-size: 150%;
 }
