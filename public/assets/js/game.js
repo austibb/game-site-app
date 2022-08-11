@@ -106,12 +106,6 @@ var updateDB = async function(win) {
 	let update;
 	if (win) {
 		update = {wins: 1, gamesPlayed: 1};
-/*
-var updateDB = async function (win) {
-	let body;
-	if (win) {
-		body = "sdfs";
-*/
 	} else {
 		update = {gamesPlayed: 1};
 	}
@@ -132,8 +126,8 @@ var updateDB = async function (win) {
 reloadBtn.on("click", function () {
 	console.log($(this).text())
 		window.location.reload();
+});
 // split
-};
 
 reloadBtn.on("click", function () {
 	console.log($(this).text());
