@@ -16,17 +16,26 @@
 		<div id="leaderboardSidebar" class="align-self-start">
 			<!-- holds the online/playable users? -->
 			<table id="leaderboard">
-				<tr>
-					<th>Leaderboard:</th>
-				</tr>
-				{{#each users as |x| }}
-				{{!-- accesses partial to populate table --}}
-				{{> leaderboard_row}}
-				{{/each}}
+				<tbody>
+					<tr>
+						<th>Leaderboard:</th>
+					</tr>
+					{{#each users as |x| }}
+					{{!-- accesses partial to populate table --}}
+					{{> leaderboard_row}}
+					{{/each}}
+				</tbody>
+
 			</table>
 			<br>
 			<h3 id="userCount"></h3>
 			<br>
+		</div>
+		<div>
+			<h1>{{user.username}}</h1>
+			<h3>{{user.wins}} Wins</h3>
+			<h3>{{user.gamesPlayed}} Games Played</h3>
+			<h3>{{to_percent winratio}} Win Rate</h3>
 		</div>
 	</div>
 
