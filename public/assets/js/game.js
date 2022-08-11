@@ -109,6 +109,7 @@ var updateDB = async function(win) {
 	} else {
 		update = {gamesPlayed: 1};
 	}
+// austin
 	try {
 		const response = await fetch('api/updateDB', {
 			method: "POST",
@@ -125,6 +126,13 @@ var updateDB = async function(win) {
 reloadBtn.on("click", function () {
 	console.log($(this).text())
 		window.location.reload();
+});
+// split
+
+reloadBtn.on("click", function () {
+	console.log($(this).text());
+	window.location.reload();
+//max 
 });
 $("#playBtn").on("click", function () {
 	gamesPlayed++;
