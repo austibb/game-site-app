@@ -1,24 +1,15 @@
 #logoutBtn,
 #userProfile {
 	border: none;
+	background-color: #0dcaf0;
 }
-
-/* #leaderboardSidebar {
-	padding: 3em;
-	float:left;
-}; */
-/* #leaderboardSidebar { */
-	/* padding: 3em; */
-	/* float:left; */
-/* }; */
 
 table, th, td {
 	border: 1px solid;
+	width: 100%;
 }
 
 #mainpage {
-	/* display: flex; */
-	/* justify-content: space-around; */
 	padding: 3em;
 }
 
@@ -34,6 +25,10 @@ table, th, td {
 .sidebar {
 	float:left;
 	width: 25%;
+	height: 100vh;
+	/* display: flex; */
+	flex-direction: column;
+	justify-content: space-between;
 }
 /*  */
 
@@ -43,4 +38,48 @@ table, th, td {
 
 .leaderboard table {
 	font-size: 150%;
+}
+
+
+
+#gameField {
+	display: flex;
+	flex-direction: column;
+	width: 75%;
+	height: 100%;
+}
+.score {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+#gameField > * {
+	margin: 0 auto;
+}
+
+#playBtn {
+	width:40%;
+	height: 30%;
+	margin-top: 20%;
+	font-size: 10vw;
+}
+
+.options > *, .reload  {
+	width: 15vw;
+	height: 8vh;
+	font-size: 2vw;
+}
+
+#gameGUI {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#result {
+	font: bold;
+	font-size: xx-large;
 }
