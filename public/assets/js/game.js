@@ -102,18 +102,43 @@ const gameOver = (playerOptions, movesLeft) => {
 	reloadBtn.text("Play Again");
 };
 
+var updateDB = async function(win) {
+	let update;
+	if (win) {
+		update = {wins: 1, gamesPlayed: 1};
+/*
 var updateDB = async function (win) {
 	let body;
 	if (win) {
 		body = "sdfs";
+*/
 	} else {
-		body = "api/signup";
+		update = {gamesPlayed: 1};
 	}
+// austin
+	try {
+		const response = await fetch('api/updateDB', {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(update),
+		});
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+reloadBtn.on("click", function () {
+	console.log($(this).text())
+		window.location.reload();
+// split
 };
 
 reloadBtn.on("click", function () {
 	console.log($(this).text());
 	window.location.reload();
+//max 
 });
 $("#playBtn").on("click", function () {
 	gamesPlayed++;

@@ -53,4 +53,28 @@ router.post("/signin", async (req, res) => {
 	}
 });
 
+router.post("/updateDB", async (req, res) => {
+
+	try {
+		const existingUser = await User.findOne({
+			where: {
+				username: req.body.username,
+			},
+		});
+		// if there is not a username in the database that matches, return an error
+
+		// create newUser using the credentials the new user just provided (stored in req.body)
+		const newUser = await User.create(req.body);
+		// save in the session the user and that they are logged in, respond with the newUser in json
+		req.session.save(() => {
+			req.session.user = newUser;
+			req.session.isLoggedIn = true;
+			res.json(newUser);
+		});
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ error });
+	}
+});
+
 module.exports = router;
