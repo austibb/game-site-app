@@ -2,3 +2,35 @@
 #userProfile {
 	border: none;
 }
+
+#leaderboardSidebar {
+	/* padding: 3em; */
+	/* float:left; */
+};
+
+table, th, td {
+	border: 1px solid;
+}
+
+#mainpage {
+	/* display: flex; */
+	/* justify-content: space-around; */
+	padding: 3em;
+}
+
+#gameField {
+	/* padding: 3em; */
+	/* display: inline; */
+	/* margin-left: 25%; */
+	width: 75%;
+	float: right;
+}
+
+.reload {
+	margin-top: 1em;
+}
+
+.sidebar {
+	float:left;
+	width: 25%;
+}

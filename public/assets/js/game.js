@@ -107,28 +107,29 @@ const gameOver = (playerOptions, movesLeft) => {
 
 };
 
-var updateDB = function (win) {
-	let body;
+var updateDB = async function(win) {
+	let update;
 	if (win) {
-		body = 'sdfs';
+		update = {wins: 1, gamesPlayed: 1};
 	} else {
-		body = "api/signup";
+		update = {gamesPlayed: 1};
 	}
 	try {
-		const newTodo = await Todo.create({
-			todo: req.body.todo,
-			userId: req.session.user.id,
+		const response = await fetch('api/updateDB', {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(update),
 		});
-		res.json(newTodo);
 	} catch (error) {
-		console.error(error);
-		res.status(500).json({ error });
+		console.log(error);
 	}
 };
 
 reloadBtn.on("click", function () {
 	console.log($(this).text())
-	window.location.reload();
+		window.location.reload();
 });
 $("#playBtn").on('click', function () {
 	inGame = true;
