@@ -32,8 +32,8 @@ router.get("/signout", (req, res) => {
 	if (req.session.isLoggedIn) {
 		console.log('entered if statement');
 		req.session.destroy();
-		console.log('logged out!')
-		// res.redirect('/');
+		console.log('logged out!');
+		return res.redirect('/');
 	} else console.log('no ones logged in');
 });
 
