@@ -9,13 +9,13 @@ let logout = async () => {
 				"Content-Type": "application/json",
 			},
 		});
-			let x = await response.json();
+		let x = await response.json();
 		if (x.success) {
 			window.location.href = "/";
 		};
 		// Window.location.href = '/';
 	} catch (error) {
-		console.error(error);
+		console.log(error);
 		alert(error);
 	}
 
