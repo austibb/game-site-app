@@ -16,9 +16,3 @@ let logout = async () => {
 	}
 };
 logoutBtn.on("click", logout);
-
-let userProfileBtn = $("#userProfileBtn");
-
-userProfileBtn.click(function () {
-	window.location.href = "/profile";
-});

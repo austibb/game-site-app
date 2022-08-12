@@ -62,8 +62,8 @@ const winner = (player, computer) => {
 				break;
 			case "PaperScissors":
 				console.log("computer win");
-				computerScoreBoard.text(compScore);
 				compScore++;
+				computerScoreBoard.text(compScore);
 				break;
 			case "PaperRock":
 				console.log("player win");
