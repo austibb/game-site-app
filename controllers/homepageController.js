@@ -33,7 +33,7 @@ router.get("/signout", (req, res) => {
 		console.log('entered if statement');
 		req.session.destroy();
 		console.log('logged out!');
-		return res.redirect('/');
+		res.json({ success: true });
 	} else console.log('no ones logged in');
 });
 
