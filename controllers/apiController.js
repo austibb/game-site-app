@@ -56,6 +56,7 @@ router.post("/signin", async (req, res) => {
 
 router.post("/updateDB", async (req, res) => {
 	try {
+		
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ error });
