@@ -15,7 +15,7 @@ let logout = async () => {
 		};
 		// Window.location.href = '/';
 	} catch (error) {
-		console.log(error);
+		// console.log(error);
 		alert(error);
 	}
 
