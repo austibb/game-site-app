@@ -102,16 +102,16 @@ const gameOver = (playerOptions, movesLeft) => {
 	reloadBtn.text("Play Again");
 };
 
-var updateDB = async function(win) {
+var updateDB = async function (win) {
 	let update;
 	if (win) {
-		update = {wins: 1, gamesPlayed: 1};
+		update = { wins: 1, gamesPlayed: 1 };
 	} else {
-		update = {gamesPlayed: 1};
+		update = { gamesPlayed: 1 };
 	}
-// austin
+	// austin
 	try {
-		const response = await fetch('api/updateDB', {
+		const response = await fetch("api/updateDB", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -124,15 +124,15 @@ var updateDB = async function(win) {
 };
 
 reloadBtn.on("click", function () {
-	console.log($(this).text())
-		window.location.reload();
+	console.log($(this).text());
+	window.location.reload();
 });
 // split
 
 reloadBtn.on("click", function () {
 	console.log($(this).text());
 	window.location.reload();
-//max 
+	//max
 });
 $("#playBtn").on("click", function () {
 	gamesPlayed++;
